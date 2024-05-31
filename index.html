@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Guess the Number!</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Guess the Number</h1>
+    <h3 style="text-align: center">Are you ready to play?</h3>
+
+    <div class="button1">
+        <form action="{{ url_for('game') }}" method="post">
+            <button class="btn" type="submit">Start!</button>
+        </form>
+    </div>
+    <div class="button2">
+        <form action="{{ url_for('stats') }}" method="post">
+            <button class="btn" type="submit">View Stats!</button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
