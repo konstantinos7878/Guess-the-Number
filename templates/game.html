@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Guess the Number!</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Guess the Number</h1>
+    <h3 style="text-align: center">I have picked a number from 0 to 100. Can you guess it?</h3>
+    <h3 style="text-align: center">You have {{ tries }} tries left</h3>
+
+    <h3 style="text-align: center">
+        <label for="usernum">Your number:</label>
+            <input readonly type="number" name="value" value="{{ value }}" maxlength="3">
+    </h3>
+
+    <h3 style="text-align: center">
+        <label for="usernum">Choose a number:</label>  
+   </h3>
+
+   <div class="bigger">
+        <h3 style="text-align: center">My number is larger than:</h3>
+        <h3 style="text-align: center">{{ bnumber1 }}</h3>
+        <h3 style="text-align: center">{{ bnumber2 }}</h3>
+        <h3 style="text-align: center">{{ bnumber3 }}</h3>
+        <h3 style="text-align: center">{{ bnumber4 }}</h3>
+        <h3 style="text-align: center">{{ bnumber5 }}</h3>
+    </div>
+
+
+   <div class="number_buttons">
+        <form action="{{ url_for('main_game') }}" method="post">
+            <input type="hidden" name="number" value="{{ number }}">
+            <input type="hidden" name="tries" value="{{ tries }}">
+            <input type="hidden" name="value" value="{{ value }}">
+            <input type="hidden" name="bnumber1" value="{{ bnumber1 }}">
+            <input type="hidden" name="bnumber2" value="{{ bnumber2 }}">
+            <input type="hidden" name="bnumber3" value="{{ bnumber3 }}">
+            <input type="hidden" name="bnumber4" value="{{ bnumber4 }}">
+            <input type="hidden" name="bnumber5" value="{{ bnumber5 }}">
+            <input type="hidden" name="snumber1" value="{{ snumber1 }}">
+            <input type="hidden" name="snumber2" value="{{ snumber2 }}">
+            <input type="hidden" name="snumber3" value="{{ snumber3 }}">
+            <input type="hidden" name="snumber4" value="{{ snumber4 }}">
+            <input type="hidden" name="snumber5" value="{{ snumber5 }}">
+
+            <div class="row">
+                <button class="btn_num" name="btn_num" type="submit" value="7">7</button>
+                <button class="btn_num" name="btn_num" type="submit" value="8">8</button>
+                <button class="btn_num" name="btn_num" type="submit" value="9">9</button>
+            </div>
+            <div class="row">
+                <button class="btn_num" name="btn_num" type="submit" value="4">4</button>
+                <button class="btn_num" name="btn_num" type="submit" value="5">5</button>
+                <button class="btn_num" name="btn_num" type="submit" value="6">6</button>
+            </div>
+            <div class="row">
+                <button class="btn_num" name="btn_num" type="submit" value="1">1</button>
+                <button class="btn_num" name="btn_num" type="submit" value="2">2</button>
+                <button class="btn_num" name="btn_num" type="submit" value="3">3</button>
+
+            </div>
+            <div class="row">
+                <button class="btn_word" name="btn_num" type="submit" value="clear">Clear</button>
+                <button class="btn_num" name="btn_num" type="submit" value="0">0</button>
+                <button class="btn_word" name="btn_num" type="submit" value="enter">Enter</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="smaller">
+        <h3 style="text-align: center">My number is smaller than:</h3>
+        <h3 style="text-align: center">{{ snumber1 }}</h3>
+        <h3 style="text-align: center">{{ snumber2 }}</h3>
+        <h3 style="text-align: center">{{ snumber3 }}</h3>
+        <h3 style="text-align: center">{{ snumber4 }}</h3>
+        <h3 style="text-align: center">{{ snumber5 }}</h3>
+    </div>
+
+
+</div>
+
+{% endblock %}
